@@ -16,7 +16,7 @@ function BatteryLevel() {
     }
   }, []);
 
-  return <div className="flex items-start justify-center"> <img src={battery} alt="bat"  />{batteryLevel || "Could not determine"}</div>;
+  return <div className="flex items-center justify-center"> <img src={battery} alt="bat"  />{batteryLevel || "Could not determine"}</div>;
 }
 
 export default BatteryLevel;

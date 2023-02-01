@@ -14,7 +14,7 @@ function NetworkType() {
     }
   }, []);
 
-  return <div className="flex items-start justify-center"><img src={wifi} alt="network"  /> {networkType || "Could not determine"}</div>;
+  return <div className="flex items-center justify-center"><img src={wifi} alt="network"  /> {networkType || "Could not determine"}</div>;
 }
 
 export default NetworkType;

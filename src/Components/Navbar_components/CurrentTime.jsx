@@ -13,7 +13,7 @@ function CurrentTime() {
     };
   }, []);
 
-  return <div>
+  return <div className="flex items-center">
     {time}
     </div>
     ;
