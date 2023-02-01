@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ListsPage from './Pages/ListsPage';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/listpage" element={<ListsPage />}/>
+          <Route path="/" element={<ListsPage />}/>
         </Routes>
       </BrowserRouter>
     </div>
