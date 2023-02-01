@@ -1,8 +1,11 @@
 import React from 'react'
+import MainLayout from '../Layouts/MainLayout'
 
 function ListsPage() {
   return (
-    <div>ListsPage</div>
+    <div>
+        <MainLayout />
+    </div>
   )
 }
 
