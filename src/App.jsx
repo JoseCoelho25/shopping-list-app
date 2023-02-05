@@ -1,15 +1,14 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ListsPage from './Pages/ListsPage';
-import CreateNewList from './Pages/CreateNewList';
+import ListPage from "./Pages/ListPage";
+
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ListsPage />}/>
-          <Route path="/createlist" element={<CreateNewList />} />
+          <Route path="/" element={<ListPage />}/>
         </Routes>
       </BrowserRouter>
     </div>

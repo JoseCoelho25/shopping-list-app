@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import MainLayout from '../Layouts/MainLayout'
 import {Link} from "react-router-dom";
 
-function ListsPage( {create} ) {
+function List( {create, modalOpen, setModalOpen} ) {
     const [isOpen, setIsOpen] = useState(false);
     console.log(create)
 
@@ -31,13 +31,11 @@ function ListsPage( {create} ) {
         
         <div className="fixed bottom-28 right-0 mr-10 bg-gradient-to-r from-[#F26C6D] to-[#C65757] px-4 py-2 rounded-full text-white flex">
             <div className="rounded-full pb-2 bg-[#C65757] text-4xl flex justify-center items-center h-8 w-8 mr-2">&#43;</div>
-            <Link to="/createlist">
-              <input type="button" value="New List" className="text-xl" />
-            </Link>
+              <input type="button" value="New List" className="text-xl" onClick={setModalOpen(true)} />
         </div>
         
     </MainLayout>
   )
 }
 
-export default ListsPage;
+export default List;
