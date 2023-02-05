@@ -8,11 +8,18 @@ function ListPage() {
     const [modalOpen, setModalOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [input, setInput] = useState("");
+    const [listValue, setListValue] = useState("");
     
 
-    const handleClick = () => {
+    function handleClick () {
         setModalOpen(false)
+        setListValue(input)
       }
+
+    function handleCancel(){
+        setModalOpen(false)
+        setInput("")
+    }
   return (
     <div>
     <MainLayout>
@@ -34,7 +41,7 @@ function ListPage() {
         <div className="w-1/2 text-center font-bold text-2xl">Lists</div>
         </div>
         
-        {/* <div>{create}</div> */}
+         <div>{listValue}</div> 
 
         
         <div className="fixed bottom-28 right-0 mr-10 bg-gradient-to-r from-[#F26C6D] to-[#C65757] px-4 py-2 rounded-full text-white flex">
@@ -59,7 +66,9 @@ function ListPage() {
           <input 
           type="button" 
           value="Cancel" 
-          className="bg-gray-500 text-white rounded-full px-4 py-2 text-xl" />
+          className="bg-gray-500 text-white rounded-full px-4 py-2 text-xl"
+          onClick={handleCancel}
+          />
           
           <input 
           type="button" 
