@@ -43,8 +43,8 @@ function ListPage() {
         </div>
         
         {/* list display */}
-        <div>
-          {listValue.map((listValue, index) => <div key={index}>{listValue}</div>)}
+        <div className="grid grid-col-1 mx-auto mt-6 space-y-4 px-6 text-3xl ">
+          {listValue.map((listValue, index) => <div key={index} className="border-2 border-gray-500">{listValue}</div>)}
         </div>
 
         
