@@ -24,10 +24,8 @@ function ListPage() {
   return (
     <div>
     <MainLayout>
-        <Header/>
-        <div className="w-1/2 text-center font-bold text-2xl">Lists</div>
-        
-        
+        <Header titleName={`Lists`}/>
+
         {/* list display */}
         <div className="grid grid-col-1 mx-auto mt-6 space-y-4 px-6 text-3xl ">
           {listValue.map((value, index) => <Link to={`/${value}`} key={index} className="border-2 border-gray-500">{value}</Link>)}

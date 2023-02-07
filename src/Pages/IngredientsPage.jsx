@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import Header from '../Components/Header';
 import MainLayout from '../Layouts/MainLayout';
 
 function IngredientsPage() {
@@ -8,7 +9,7 @@ function IngredientsPage() {
 
   return (
     <MainLayout>
-      <div>{data}</div>
+      <Header titleName={data}/>
     </MainLayout>  
   )
 }
