@@ -3,6 +3,7 @@ import Listcart from "../assets/imgs/shopping-list.png";
 import MainLayout from '../Layouts/MainLayout'
 import {Link} from "react-router-dom";
 import Header from '../Components/Header';
+import PinkButton from '../Components/PinkButton';
 
 
 function ListPage() {
@@ -33,10 +34,7 @@ function ListPage() {
 
         
         {/* button to open modal */}
-        <div className="fixed bottom-28 right-0 mr-10 bg-gradient-to-r from-[#F26C6D] to-[#C65757] px-4 py-2 rounded-full text-white flex">
-            <div className="rounded-full pb-2 bg-[#C65757] text-4xl flex justify-center items-center h-8 w-8 mr-2">&#43;</div>
-              <input type="button" value="New List" className="text-xl" onClick={() => setModalOpen(true)} />
-        </div>
+        <PinkButton setModalOpen={() => setModalOpen(true)}/>
 
     </MainLayout>
 
