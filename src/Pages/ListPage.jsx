@@ -44,7 +44,7 @@ function ListPage() {
         
         {/* list display */}
         <div className="grid grid-col-1 mx-auto mt-6 space-y-4 px-6 text-3xl ">
-          {listValue.map((listValue, index) => <div key={index} className="border-2 border-gray-500">{listValue}</div>)}
+          {listValue.map((value, index) => <Link to={`/${value}`} key={index} className="border-2 border-gray-500">{value}</Link>)}
         </div>
 
         
@@ -57,7 +57,7 @@ function ListPage() {
     </MainLayout>
 
     {modalOpen ? (
-    <div className="w-screen mx-auto h-screen absolute bg-white ">
+    <div className="w-screen mx-auto h-screen absolute bg-white top-0 right-0">
       <h1 className="text-center text-4xl mt-36 font-bold">
         Create New List
       </h1>
