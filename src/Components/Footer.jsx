@@ -5,6 +5,7 @@ import User from "../assets/imgs/user.png";
 import PinkHome from "../assets/imgs/home-pink.png";
 import PinkBook from "../assets/imgs/pink-cook.png";
 import PinkUser from "../assets/imgs/pink-user.png";
+import { Link } from "react-router-dom";
 
 function Footer() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -20,7 +21,7 @@ function Footer() {
   return (
     <footer>
       <div className="flex mx-auto justify-evenly items-center text-center mb-2 mt-4 bottom-0 fixed w-screen">
-        <div className="space-y-2" 
+        <Link to="/" className="space-y-2" 
         onMouseOver={() => handleMouseOver(0)} 
         onMouseOut={handleMouseOut}>
           {hoveredIndex === 0 ? (
@@ -29,7 +30,7 @@ function Footer() {
             <img src={Home} alt="home" className="w-10 h-10"/>
           )}
           <p>Home</p>
-        </div>
+        </Link>
         <div className="space-y-2" 
         onMouseOver={() => handleMouseOver(1)} 
         onMouseOut={handleMouseOut}>
