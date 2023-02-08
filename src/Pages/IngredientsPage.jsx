@@ -23,7 +23,6 @@ function IngredientsPage() {
     localStorage.setItem(`${data}-ingredients`, JSON.stringify([...ingredients, input]));
   }
 
-  console.log(ingredients)
   
   function handleCancel(){
       setModalOpen(false)
@@ -45,13 +44,14 @@ function IngredientsPage() {
 
         <div className="grid grid-col-1 mx-auto mt-6 space-y-4 px-6 text-3xl ">
           {ingredients.map((ingredient, index) => 
-          <div className="flex items-baseline space-x-4 px-2" key={index} >
+          <div className="flex items-baseline justify-start space-x-4 px-2" key={index} >
             <input type="checkbox"  className="border-2 border-gray-500 w-4 h-4" onChange={()=>handleCheckboxChange(index)}/>
             {decorationStatus[index] ? (
               <div className="text-2xl font-bold line-through decoration-red-500">{ingredient}</div>
             ) : (
               <div className="text-2xl font-bold">{ingredient}</div>
             )}
+            <input type="button" value="Remove" className="border-2 rounded-lg text-sm p-2 bg-[#F26C6D] text-white"/>
           </div>)}
         </div>
 

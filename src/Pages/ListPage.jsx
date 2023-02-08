@@ -11,7 +11,6 @@ function ListPage() {
     const [input, setInput] = useState("");
     const [listValue, setListValue] = useState(JSON.parse(localStorage.getItem("lists") || []));
 
-    console.log(JSON.parse(localStorage.getItem("lists")))
 
     function handleClick () {
       setModalOpen(false)
@@ -31,7 +30,9 @@ function ListPage() {
       newListValue.splice(index, 1);
       setListValue(newListValue);
       localStorage.setItem("lists", JSON.stringify(newListValue));
+      localStorage.removeItem(`${listValue[index]}-ingredients`)
   }
+
   return (
     <div>
     <MainLayout>
