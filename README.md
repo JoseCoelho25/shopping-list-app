@@ -14,13 +14,13 @@ The project consists of a mobile site using react, and tailwind for the design w
 
 ## Installation
 
-git clone: https://github.com/JoseCoelho25/react-flix.git
+git clone: https://github.com/JoseCoelho25/shopping-list-app.git
 
 npm install
 
 npm run dev
 
-See it live https://react-flix-sooty.vercel.app/
+See it live https://shopping-list-app-eight.vercel.app/
 
 ## Tools & Libraries
 
