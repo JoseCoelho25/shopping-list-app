@@ -9,27 +9,41 @@ import PinkButton from '../Components/PinkButton';
 function ListPage() {
     const [modalOpen, setModalOpen] = useState(false);
     const [input, setInput] = useState("");
-    const [listValue, setListValue] = useState([]);
-    
+    const [listValue, setListValue] = useState(JSON.parse(localStorage.getItem("lists") || []));
+
+    console.log(JSON.parse(localStorage.getItem("lists")))
 
     function handleClick () {
-        setModalOpen(false)
-        setListValue([...listValue, input])
-        setInput("")
-      }
+      setModalOpen(false)
+      const capitalizedInput = input.charAt(0).toUpperCase() + input.slice(1);
+      setListValue([...listValue, capitalizedInput])
+      setInput("")
+      localStorage.setItem("lists", JSON.stringify([...listValue, capitalizedInput]))
+    }
 
     function handleCancel(){
         setModalOpen(false)
         setInput("")
     }
+
+    function removeList(index) {
+      const newListValue = [...listValue];
+      newListValue.splice(index, 1);
+      setListValue(newListValue);
+      localStorage.setItem("lists", JSON.stringify(newListValue));
+  }
   return (
     <div>
     <MainLayout>
         <Header title={`Lists`}/>
 
         {/* list display */}
-        <div className="grid grid-col-1 mx-auto mt-6 space-y-4 px-6 text-3xl ">
-          {listValue.map((value, index) => <Link to={`/${value}`} key={index} className="border-2 border-gray-500">{value}</Link>)}
+        <div className="grid grid-col-1 mx-auto mt-6 space-y-4 px-6 text-3xl font-bold">
+          {listValue.map((value, index) => 
+          <div key={index} className="flex border-2 drop-shadow-2xl shadow-xl rounded-lg py-2 pl-4 justify-between">
+            <Link to={`/${value}`}>{value}</Link>
+            <input type="button" value="Remove" onClick={()=>{removeList(index)}} className="border-2 rounded-lg text-sm p-2 bg-[#F26C6D] text-white"/>
+          </div>)}
         </div>
         
         {/* button to open modal */}
