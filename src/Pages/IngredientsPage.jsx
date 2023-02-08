@@ -10,18 +10,32 @@ function IngredientsPage() {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [input, setInput] = useState("");
-  const [listValue, setListValue] = useState([]);
-  
+  const [decorationStatus, setDecorationStatus] = useState({});
+
+  const [ingredients, setIngredients] = useState(() => {
+    const storedIngredients = localStorage.getItem(`${data}-ingredients`);
+    return storedIngredients ? JSON.parse(storedIngredients) : [];
+  });
 
   function handleClick () {
-      setModalOpen(false)
-      setListValue([...listValue, input])
-      setInput("")
-    }
+    setModalOpen(false);
+    setIngredients([...ingredients, input]);
+    localStorage.setItem(`${data}-ingredients`, JSON.stringify([...ingredients, input]));
+  }
 
+  console.log(ingredients)
+  
   function handleCancel(){
       setModalOpen(false)
       setInput("")
+  }
+
+
+  // funçao que manda para um objeto vazio true ou falso quando utilizado com input checkox
+  function handleCheckboxChange(index){
+    const updatedStatus = { ...decorationStatus };
+    updatedStatus[index] = !updatedStatus[index];
+    setDecorationStatus(updatedStatus);
   }
 
   return (
@@ -30,10 +44,14 @@ function IngredientsPage() {
         <Header title={data}/>
 
         <div className="grid grid-col-1 mx-auto mt-6 space-y-4 px-6 text-3xl ">
-          {listValue.map((value, index) => 
-          <div className="flex space-x-4" key={index} >
-            <input type="checkbox"  className="border-2 border-gray-500"/>
-            <div>{value}</div>
+          {ingredients.map((ingredient, index) => 
+          <div className="flex items-baseline space-x-4 px-2" key={index} >
+            <input type="checkbox"  className="border-2 border-gray-500 w-4 h-4" onChange={()=>handleCheckboxChange(index)}/>
+            {decorationStatus[index] ? (
+              <div className="text-2xl font-bold line-through decoration-red-500">{ingredient}</div>
+            ) : (
+              <div className="text-2xl font-bold">{ingredient}</div>
+            )}
           </div>)}
         </div>
 
