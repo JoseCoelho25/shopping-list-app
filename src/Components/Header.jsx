@@ -12,10 +12,10 @@ function Header( props) {
             : 
             <div className="text-2xl">&#9776;</div>}
             </button>
-            {isOpen && <div className=" grid grid-cols-1 hover:bg-blue-400">
+            {isOpen && <div className=" grid grid-cols-1">
                 <Link to="/" className="hover:bg-blue-400 rounded-lg p-1 ">Lists</Link>
-                <Link to="/contact" className="hover:bg-blue-400 rounded-lg p-1">Recipes</Link>
-                <Link to="/suggestion" className="hover:bg-blue-400 rounded-lg p-1">My account</Link>
+                <Link to="/recipes" className="hover:bg-blue-400 rounded-lg p-1">Recipes</Link>
+                <Link to="/account" className="hover:bg-blue-400 rounded-lg p-1">My account</Link>
             </div>
             }
             </div>
