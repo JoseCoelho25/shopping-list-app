@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Link} from "react-router-dom";
 
-function Header( {titleName}) {
+function Header( props) {
     const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="flex bg-gradient-to-r from-[#f3977a] to-[#ef4876] pb-2">
@@ -19,7 +19,7 @@ function Header( {titleName}) {
             </div>
             }
             </div>
-            <div className="w-1/2 text-center font-bold text-2xl">{titleName}</div>
+            <div className="w-1/2 text-center font-bold text-2xl">{props.title}</div>
     </div>
   )
 }

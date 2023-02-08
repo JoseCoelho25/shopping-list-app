@@ -25,7 +25,7 @@ function ListPage() {
   return (
     <div>
     <MainLayout>
-        <Header titleName={`Lists`}/>
+        <Header title={`Lists`}/>
 
         {/* list display */}
         <div className="grid grid-col-1 mx-auto mt-6 space-y-4 px-6 text-3xl ">
