@@ -50,8 +50,8 @@ function ListPage() {
         <Header title={`Lists`}/>
 
         {/* list display */}
-        <div className="h-screen fixed top-20 left-0 container">
-          <div className="h-3/5 overflow-y-auto overscroll-auto mx-auto mt-6 space-y-4 px-6 text-3xl font-bold">
+        <div className="h-screen fixed top-20 left-0 container w-screen">
+          <div className="h-3/5 overflow-y-auto overscroll-auto mx-auto mt-6 space-y-4 px-6 text-3xl font-bold w-full">
           {listValue.map((value, index) => 
           <div key={index} className="flex border-2 drop-shadow-2xl shadow-xl rounded-lg py-2 pl-4 justify-between h-14">
             <Link to={`/${value}`}>{value}</Link>
