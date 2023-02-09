@@ -10,8 +10,13 @@ function IngredientsPage() {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [input, setInput] = useState("");
-  const [decorationStatus, setDecorationStatus] = useState({});
-
+  
+  const [decorationStatus, setDecorationStatus] = useState(() => {
+    const storedDecorationStatus = localStorage.getItem(`${data}-decorationStatus`);
+    return storedDecorationStatus ? JSON.parse(storedDecorationStatus) : {};
+  });
+  
+  
   const [ingredients, setIngredients] = useState(() => {
     const storedIngredients = localStorage.getItem(`${data}-ingredients`);
     return storedIngredients ? JSON.parse(storedIngredients) : [];
@@ -38,12 +43,20 @@ function IngredientsPage() {
 
 
   // funçao que manda para um objeto vazio true ou falso quando utilizado com input checkox
+  // function handleCheckboxChange(index){
+  //   const updatedStatus = { ...decorationStatus };
+  //   updatedStatus[index] = !updatedStatus[index];
+  //   setDecorationStatus(updatedStatus);
+  // }
+
   function handleCheckboxChange(index){
     const updatedStatus = { ...decorationStatus };
     updatedStatus[index] = !updatedStatus[index];
     setDecorationStatus(updatedStatus);
+    localStorage.setItem(`${data}-decorationStatus`, JSON.stringify(updatedStatus));
   }
-
+  
+  
   return (
     <div>
       <MainLayout>
