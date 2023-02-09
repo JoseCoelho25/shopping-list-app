@@ -48,8 +48,8 @@ function IngredientsPage() {
     <div>
       <MainLayout>
         <Header title={data}/>
-      <div className="container h-screen">
-        <div className="h-2/3 grid grid-col-1 overflow-y-hidden mx-auto mt-6 space-y-4 px-6 text-3xl">
+      <div className="h-screen">
+        <div className="h-2/3 overflow-y-auto overscroll-contain mx-auto mt-6 space-y-4 px-6 text-3xl">
           {ingredients.map((ingredient, index) => 
           <div className="flex justify-between" key={index} >
             <div className="flex items-baseline space-x-4 px-2">

@@ -50,13 +50,16 @@ function ListPage() {
         <Header title={`Lists`}/>
 
         {/* list display */}
-        <div className="grid grid-col-1 mx-auto mt-6 space-y-4 px-6 text-3xl font-bold">
+        <div className="h-screen">
+          <div className="h-2/3 overscroll-contain overscroll-y-auto  mx-auto mt-6 space-y-4 px-6 text-3xl font-bold">
           {listValue.map((value, index) => 
-          <div key={index} className="flex border-2 drop-shadow-2xl shadow-xl rounded-lg py-2 pl-4 justify-between">
+          <div key={index} className="flex border-2 drop-shadow-2xl shadow-xl rounded-lg py-2 pl-4 justify-between h-14">
             <Link to={`/${value}`}>{value}</Link>
             <input type="button" value="Remove" onClick={()=>{removeList(index)}} className="border-2 rounded-lg text-sm p-2 bg-[#F26C6D] text-white"/>
           </div>)}
+          </div>
         </div>
+        
         
         {/* button to open modal */}
         <PinkButton setModalOpen={() => setModalOpen(true)} name={`New List`}/>

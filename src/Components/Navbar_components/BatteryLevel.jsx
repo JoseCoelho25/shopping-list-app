@@ -7,10 +7,10 @@ function BatteryLevel() {
   useEffect(() => {
     if ('getBattery' in navigator) {
       navigator.getBattery().then(battery => {
-        setBatteryLevel(battery.level * 100 + "%");
+        setBatteryLevel(Math.floor(battery.level * 100) + "%");
 
         battery.addEventListener('levelchange', () => {
-          setBatteryLevel(battery.level * 100 + "%");
+          setBatteryLevel(Math.floor(battery.level * 100) + "%");
         });
       });
     }
