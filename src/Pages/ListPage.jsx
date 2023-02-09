@@ -9,7 +9,7 @@ import PinkButton from '../Components/PinkButton';
 function ListPage() {
     const [modalOpen, setModalOpen] = useState(false);
     const [input, setInput] = useState("");
-    const [listValue, setListValue] = useState(JSON.parse(localStorage.getItem("lists") || []));
+    const [listValue, setListValue] = useState([]);
     
     
     useEffect(() => {
