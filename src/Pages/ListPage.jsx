@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Listcart from "../assets/imgs/shopping-list.png";
 import MainLayout from '../Layouts/MainLayout'
 import {Link} from "react-router-dom";
@@ -10,6 +10,17 @@ function ListPage() {
     const [modalOpen, setModalOpen] = useState(false);
     const [input, setInput] = useState("");
     const [listValue, setListValue] = useState(JSON.parse(localStorage.getItem("lists") || []));
+    
+    
+    useEffect(() => {
+      try {
+        const listValue = JSON.parse(localStorage.getItem("lists")) || [];
+        setListValue(listValue);
+      } catch (e) {
+        console.error(e);
+        localStorage.clear();
+      }
+    }, []);
 
 
     function handleClick () {
