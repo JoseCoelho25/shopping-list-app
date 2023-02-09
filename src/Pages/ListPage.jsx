@@ -67,8 +67,8 @@ function ListPage() {
       <h1 className="text-center text-4xl mt-36 font-bold">
         Create New List
       </h1>
-      <div className="flex relative">
-        <img src={Listcart} alt="list" className="absolute w-8 inset-x-20 inset-y-11" />
+      <div className="flex relative w-2/3 mx-auto">
+        <img src={Listcart} alt="list" className="absolute w-8 bottom-0 left-0 ml-2" />
         <input type="text" name="Enter list name" id="oi" placeholder='Enter list name' className="mt-10 p-2 pl-12 flex mx-auto  rounded-lg  shadow-lg shadow-slate-400" 
         onChange={(e)=>setInput(e.target.value)}
         />

@@ -49,7 +49,7 @@ function IngredientsPage() {
       <MainLayout>
         <Header title={data}/>
 
-        <div className="grid grid-col-1 mx-auto mt-6 space-y-4 px-6 text-3xl ">
+        <div className="grid grid-col-1 mx-auto mt-6 space-y-4 px-6 text-3xl">
           {ingredients.map((ingredient, index) => 
           <div className="flex justify-between" key={index} >
             <div className="flex items-baseline space-x-4 px-2">
