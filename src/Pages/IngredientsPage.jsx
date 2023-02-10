@@ -10,6 +10,7 @@ function IngredientsPage() {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [input, setInput] = useState("");
+
   
   const [decorationStatus, setDecorationStatus] = useState(() => {
     const storedDecorationStatus = localStorage.getItem(`${data}-decorationStatus`);
@@ -68,6 +69,7 @@ function IngredientsPage() {
             <div className="flex items-baseline space-x-4 px-2">
               <input 
               type="checkbox"  
+              checked={decorationStatus[index]}
               className="border-2 border-gray-500 w-4 h-4" 
               onChange={()=>handleCheckboxChange(index)}/>
             {decorationStatus[index] ? (

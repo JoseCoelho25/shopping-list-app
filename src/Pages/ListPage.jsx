@@ -10,7 +10,7 @@ function ListPage() {
     const [modalOpen, setModalOpen] = useState(false);
     const [input, setInput] = useState("");
     const [listValue, setListValue] = useState([]);
-    
+   
     
     useEffect(() => {
       try {
