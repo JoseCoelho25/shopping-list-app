@@ -11,21 +11,17 @@ function AddIngredientsPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [input, setInput] = useState("");
   
-  const [decorationStatus, setDecorationStatus] = useState(() => {
-    const storedDecorationStatus = localStorage.getItem(`${data}-decorationStatus`);
-    return storedDecorationStatus ? JSON.parse(storedDecorationStatus) : {};
-  });
   
   
-  const [ingredients, setIngredients] = useState(() => {
-    const storedIngredients = localStorage.getItem(`${data}-ingredients`);
+  const [recipeIngredients, setRecipeIngredients] = useState(() => {
+    const storedIngredients = localStorage.getItem(`${data}-recipeingredients`);
     return storedIngredients ? JSON.parse(storedIngredients) : [];
   });
 
   function handleClick () {
     setModalOpen(false);
-    setIngredients([...ingredients, input]);
-    localStorage.setItem(`${data}-ingredients`, JSON.stringify([...ingredients, input]));
+    setRecipeIngredients([...recipeIngredients, input]);
+    localStorage.setItem(`${data}-recipeingredients`, JSON.stringify([...recipeIngredients, input]));
   }
 
   
@@ -35,27 +31,12 @@ function AddIngredientsPage() {
   }
 
   function handleRemove(index){
-    const newListValue = [...ingredients];
+    const newListValue = [...recipeIngredients];
       newListValue.splice(index, 1);
-      setIngredients(newListValue);
-      localStorage.setItem(`${data}-ingredients`, JSON.stringify(newListValue));
+      setRecipeIngredients(newListValue);
+      localStorage.setItem(`${data}-recipeingredients`, JSON.stringify(newListValue));
   }
 
-
-  // funçao que manda para um objeto vazio true ou falso quando utilizado com input checkox
-  // function handleCheckboxChange(index){
-  //   const updatedStatus = { ...decorationStatus };
-  //   updatedStatus[index] = !updatedStatus[index];
-  //   setDecorationStatus(updatedStatus);
-  // }
-
-  function handleCheckboxChange(index){
-    const updatedStatus = { ...decorationStatus };
-    updatedStatus[index] = !updatedStatus[index];
-    setDecorationStatus(updatedStatus);
-    localStorage.setItem(`${data}-decorationStatus`, JSON.stringify(updatedStatus));
-  }
-  
   
   return (
     <div>
@@ -63,18 +44,10 @@ function AddIngredientsPage() {
         <Header title={data}/>
       <div className="h-screen fixed top-20 left-0 container w-screen">
         <div className="h-3/5 overflow-y-auto overscroll-auto mx-auto mt-6 space-y-4 px-6 text-3xl w-full">
-          {ingredients.map((ingredient, index) => 
+          {recipeIngredients.map((ingredient, index) => 
           <div className="flex justify-between" key={index} >
             <div className="flex items-baseline space-x-4 px-2">
-              <input 
-              type="checkbox"  
-              className="border-2 border-gray-500 w-4 h-4" 
-              onChange={()=>handleCheckboxChange(index)}/>
-            {decorationStatus[index] ? (
-              <div className="text-2xl font-bold line-through decoration-red-500">{ingredient}</div>
-            ) : (
-              <div className="text-2xl font-bold">{ingredient}</div>
-            )}
+              {ingredient}
             </div>
             <input 
             type="button" 

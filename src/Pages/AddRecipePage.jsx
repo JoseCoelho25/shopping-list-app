@@ -9,13 +9,13 @@ import PinkButton from '../Components/PinkButton';
 function AddRecipePage() {
     const [modalOpen, setModalOpen] = useState(false);
     const [input, setInput] = useState("");
-    const [listValue, setListValue] = useState([]);
+    const [recipeValue, setRecipeValue] = useState([]);
     
     
     useEffect(() => {
       try {
-        const listValue = JSON.parse(localStorage.getItem("recipelists")) || [];
-        setListValue(listValue);
+        const recipeValue = JSON.parse(localStorage.getItem("recipelists")) || [];
+        setRecipeValue(recipeValue);
       } catch (e) {
         console.error(e);
         localStorage.clear();
@@ -26,9 +26,9 @@ function AddRecipePage() {
     function handleClick () {
       setModalOpen(false)
       const capitalizedInput = input.charAt(0).toUpperCase() + input.slice(1);
-      setListValue([...listValue, capitalizedInput])
+      setRecipeValue([...recipeValue, capitalizedInput])
       setInput("")
-      localStorage.setItem("recipelists", JSON.stringify([...listValue, capitalizedInput]))
+      localStorage.setItem("recipelists", JSON.stringify([...recipeValue, capitalizedInput]))
     }
 
     function handleCancel(){
@@ -37,11 +37,11 @@ function AddRecipePage() {
     }
 
     function removeList(index) {
-      const newListValue = [...listValue];
+      const newListValue = [...recipeValue];
       newListValue.splice(index, 1);
-      setListValue(newListValue);
+      setRecipeValue(newListValue);
       localStorage.setItem("recipelists", JSON.stringify(newListValue));
-      localStorage.removeItem(`${listValue[index]}-recipeingredients`)
+      localStorage.removeItem(`${recipeValue[index]}-recipeingredients`)
   }
 
   return (
@@ -52,7 +52,7 @@ function AddRecipePage() {
         {/* list display */}
         <div className="h-screen fixed top-20 left-0 container w-screen">
           <div className="h-3/5 overflow-y-auto overscroll-auto mx-auto mt-6 space-y-4 px-6 text-3xl font-bold w-full">
-          {listValue.map((recipe, index) => 
+          {recipeValue.map((recipe, index) => 
           <div key={index} className="flex border-2 drop-shadow-2xl shadow-xl rounded-lg py-2 pl-4 justify-between h-14">
             <Link to={`/${recipe}`}>{recipe}</Link>
             <input type="button" value="Remove" onClick={()=>{removeList(index)}} className="border-2 rounded-lg text-sm p-2 bg-[#F26C6D] text-white"/>
@@ -62,7 +62,7 @@ function AddRecipePage() {
         
         
         {/* button to open modal */}
-        <PinkButton setModalOpen={() => setModalOpen(true)} name={`New List`}/>
+        <PinkButton setModalOpen={() => setModalOpen(true)} name={`Create Recipe`}/>
     </MainLayout>
 
     {modalOpen ? (
@@ -72,7 +72,7 @@ function AddRecipePage() {
       </h1>
       <div className="flex relative w-2/3 mx-auto">
         <img src={Listcart} alt="list" className="absolute w-8 bottom-0 left-0 ml-2" />
-        <input type="text" name="Enter list name" id="oi" placeholder='Enter list name' className="mt-10 p-2 pl-12 flex mx-auto  rounded-lg  shadow-lg shadow-slate-400" 
+        <input type="text" name="Enter list name" id="oi" placeholder='Enter recipe name' className="mt-10 p-2 pl-12 flex mx-auto  rounded-lg  shadow-lg shadow-slate-400" 
         onChange={(e)=>setInput(e.target.value)}
         />
       </div>
