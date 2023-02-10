@@ -4,9 +4,9 @@ import Header from '../Components/Header';
 import PinkButton from '../Components/PinkButton';
 import MainLayout from '../Layouts/MainLayout';
 
-function AddIngredientsPage() {
+function AddRecipeIngredientsPage() {
   const params = useParams();
-  const data = params.recipe;
+  const dataRecipe = params.recipe;
 
   const [modalOpen, setModalOpen] = useState(false);
   const [input, setInput] = useState("");
@@ -14,14 +14,14 @@ function AddIngredientsPage() {
   
   
   const [recipeIngredients, setRecipeIngredients] = useState(() => {
-    const storedIngredients = localStorage.getItem(`${data}-recipeingredients`);
+    const storedIngredients = localStorage.getItem(`${dataRecipe}-recipeingredients`);
     return storedIngredients ? JSON.parse(storedIngredients) : [];
   });
 
   function handleClick () {
     setModalOpen(false);
     setRecipeIngredients([...recipeIngredients, input]);
-    localStorage.setItem(`${data}-recipeingredients`, JSON.stringify([...recipeIngredients, input]));
+    localStorage.setItem(`${dataRecipe}-recipeingredients`, JSON.stringify([...recipeIngredients, input]));
   }
 
   
@@ -34,14 +34,14 @@ function AddIngredientsPage() {
     const newListValue = [...recipeIngredients];
       newListValue.splice(index, 1);
       setRecipeIngredients(newListValue);
-      localStorage.setItem(`${data}-recipeingredients`, JSON.stringify(newListValue));
+      localStorage.setItem(`${dataRecipe}-recipeingredients`, JSON.stringify(newListValue));
   }
 
   
   return (
     <div>
       <MainLayout>
-        <Header title={data}/>
+        <Header title={dataRecipe}/>
       <div className="h-screen fixed top-20 left-0 container w-screen">
         <div className="h-3/5 overflow-y-auto overscroll-auto mx-auto mt-6 space-y-4 px-6 text-3xl w-full">
           {recipeIngredients.map((ingredient, index) => 
@@ -92,4 +92,4 @@ function AddIngredientsPage() {
   )
 }
 
-export default AddIngredientsPage
+export default AddRecipeIngredientsPage

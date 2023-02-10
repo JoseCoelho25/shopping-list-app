@@ -2,8 +2,8 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ListPage from "./Pages/ListPage";
 import IngredientsPage from "./Pages/IngredientsPage";
-import AddRecipePage from './Pages/AddRecipePage';
-import AddIngredientsPage from "./Pages/AddIngredientsPage";
+import RecipesPage from "./Pages/RecipesPage";
+import AddRecipeIngredientsPage from "./Pages/AddRecipeIngredientsPage";
 
 
 function App() {
@@ -13,8 +13,8 @@ function App() {
         <Routes>
           <Route path="/" element={<ListPage />}/>
           <Route path="/:value" element={<IngredientsPage />} />
-          <Route path="/recipes" element={<AddRecipePage />} />
-          <Route path="/:recipe" element={<AddIngredientsPage />} />
+          <Route path="/recipes" element={<RecipesPage />} />
+          <Route path="/recipes/:recipe" element={<AddRecipeIngredientsPage />} />
         </Routes>
       </BrowserRouter>
     </div>
