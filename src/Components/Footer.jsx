@@ -31,7 +31,7 @@ function Footer() {
           )}
           <p>Home</p>
         </Link>
-        <div className="space-y-2" 
+        <Link to="/recipes" className="space-y-2" 
         onMouseOver={() => handleMouseOver(1)} 
         onMouseOut={handleMouseOut}>
           {hoveredIndex === 1 ? (
@@ -40,7 +40,7 @@ function Footer() {
             <img src={Cook} alt="cookbook" className="w-10 h-10"/>
           )}
           <p>Recipes</p>
-        </div>
+        </Link>
         <div className="space-y-2" 
         onMouseOver={() => handleMouseOver(2)} 
         onMouseOut={handleMouseOut}>
