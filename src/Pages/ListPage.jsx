@@ -66,7 +66,7 @@ function ListPage() {
     </MainLayout>
 
     {modalOpen ? (
-    <div className="w-screen mx-auto h-screen absolute bg-white top-0 right-0">
+    <div className="w-screen mx-auto h-screen absolute bg-white top-0 right-0 z-30">
       <h1 className="text-center text-4xl mt-36 font-bold">
         Create New List
       </h1>

@@ -6,7 +6,7 @@ function CurrentTime() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setTime(new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false }));
-    }, 1000);
+    },[]);
 
     return () => {
       clearInterval(intervalId);
