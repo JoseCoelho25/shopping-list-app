@@ -42,8 +42,8 @@ function AddRecipeIngredientsPage() {
     <div>
       <MainLayout>
         <Header title={dataRecipe}/>
-      <div className="h-screen fixed top-20 left-0 container w-screen">
-        <div className="h-3/5 overflow-y-auto overscroll-auto mx-auto mt-6 space-y-4 px-6 text-3xl w-full">
+      <div className="h-screen fixed top-20 left-0 lg:left-5 2xl:left-48 container w-screen">
+        <div className="h-3/5 overflow-y-auto overscroll-auto mx-auto mt-6 space-y-4 px-6 text-3xl w-full lg:w-1/2">
           {recipeIngredients.map((ingredient, index) => 
           <div className="flex justify-between" key={index} >
             <div className="flex items-baseline space-x-4 px-2">

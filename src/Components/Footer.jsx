@@ -19,8 +19,8 @@ function Footer() {
   };
 
   return (
-    <footer>
-      <div className="flex mx-auto justify-evenly items-center text-center mb-2 mt-4 bottom-0 fixed w-screen bg-white">
+    <footer className='container mx-auto w-screen flex justify-center'>
+      <div className="flex mx-auto justify-evenly items-center text-center mb-2 mt-4 bottom-0 fixed w-screen lg:w-1/3 bg-white">
         <Link to="/" className="space-y-2" 
         onMouseOver={() => handleMouseOver(0)} 
         onMouseOut={handleMouseOut}>
